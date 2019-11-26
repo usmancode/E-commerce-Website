@@ -1,0 +1,53 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%} Contact Us - My Awesome Cart{% endblock %}
+{% block body %} 
+
+<div class="container my-4">
+
+        <form name="contactform"action="/shop/" method="post" onsubmit="return validateform()">{% csrf_token %}
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="name" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="name">E-mail</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your E-mail">
+                </div>
+                <div class="form-group">
+                  <label for="name">Mobile No.</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91**********">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">How may we help you?</label>
+                  <textarea class="form-control" id="desc" name="desc" rows="3" required></textarea>
+                </div>
+             
+            <button     type="submit">Submit</button>
+        </form>
+</div>
+
+{% endblock %}
+
+{% block js %}
+   <script>
+
+function validateform()
+{
+  var alphaExp = /^[a-zA-Z]+$/;
+  var x=document.forms['contactform']['name'].value;
+  if(isNaN(x))
+  {
+   
+    alert("Thanks for contacting with us..");
+  }
+  else
+  { 
+    alert("worng input try again"); 
+  }
+    
+}
+
+
+</script>
+{% endblock %}
